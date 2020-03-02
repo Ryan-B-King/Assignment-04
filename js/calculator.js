@@ -1,4 +1,4 @@
-window.addEventListener("load", init);
+window.addEventListener("load", init, false);
 
 function init() {
     let $ = function (id) {
@@ -8,38 +8,48 @@ function init() {
     let buttons = $("buttons");
     let result = $("result");
     let equal = $("equal");
-        // handles all of the event listeners for every button
-// let $;  // anon helper function that get element from DOM 
-
-// buttons.addEventListener("click", function enter(val) {
-    //click actions go here for all 16 buttons
 
     // function enter(val) { // to be called for each bttn by the equal sign
         //function called for all but ENTER value  --  $("one").value
         //get result text box by ID and set its value plue equal to the val para passed in
         // should be live streaming the ongoing values -- concatonate string
     // }
-
     buttons.addEventListener("click", enter);
     function enter(e) {
+        "use strict";
         window.console.log(e.target.value);
         result.value = e.target.value;
+        // debugger;
+        // result = string.concat(result += result.value)
 
-        do {
 
-        }
-        while (result.value !== equal);
+    //     while (result.value !== "=") { //equal triggers calc()
+    //         // result += result.value;
+    //         ;
+    // }
+        calculate(result);
 
-        window.console.log("Loop Ended");
+        // result = string.concat(result + result.value);
+        // result.value = result;
+        // result = string.concat(result + result.value);
+        // do {
+        // }
+        // while ();
+        // window.console.log("Loop Ended");
+
+
     };
 // });
 
+
 };
 
-// ouside of INIT()
-// function calculate(){ // activates with hitting the "=" bttn
+function calculate(result){ // activates with hitting the "=" bttn
+"use strict";
+result = String(result);
+result = eval(result);
+console.log(typeof result, "result: " + result);
+// can be used to calculate when passing arg is string
 
-    // eval() can be used to calculate when passing arg is string
-
-// }
+};
 
