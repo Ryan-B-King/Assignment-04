@@ -3,33 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Assignment 4 - Calculator</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script src="js/calculator.js"></script>
 </head>
 
 <body>
-	<div id="buttons">
-	    <input type="text" readonly id="result">
-        <br>
-        <input type="button" id="seven" class="number" value="7">
-        <input type="button" id="eight" class="number" value="8">
-        <input type="button" id="nine" class="number" value="9">
-        <input type="button" id="divide" class="operator" value="/">
-        <br>
-        <input type="button" id="four" class="number" value="4">
-        <input type="button" id="five" class="number" value="5">
-        <input type="button" id="six" class="number" value="6">
-        <input type="button" id="multiply" class="operator" value="*">
-        <br>
-        <input type="button" id="one" class="number" value="1">
-        <input type="button" id="two" class="number" value="2">
-        <input type="button" id="three" class="number" value="3">
-        <input type="button" id="subtract" class="operator" value="-">
-        <br>
-        <input type="button" id="zero" class="number" value="0">
-        <input type="button" id="period" class="operator" value=".">
-        <input type="button" id="add" class="operator" value="+">
-        <input type="button" id="equal" value="=">
-        <input type="button" id="clear" value="C">
-    </div>
+	<div id="calculator">
+	    <div id="buttons">
+    	    <input type="text" readonly id="result" value="result">
+            <!-- <br> -->
+            <input type="button" id="seven" class="key" value="7">
+            <input type="button" id="eight" class="key" value="8">
+            <input type="button" id="nine" class="key" value="9">
+            <input type="button" id="divide" class="key" value="/">
+            <!-- <br> -->
+            <input type="button" id="four" class="key" value="4">
+            <input type="button" id="five" class="key" value="5">
+            <input type="button" id="six" class="key" value="6">
+            <input type="button" id="multiply" class="key" value="*">
+            <!-- <br> -->
+            <input type="button" id="one" class="key" value="1">
+            <input type="button" id="two" class="key" value="2">
+            <input type="button" id="three" class="key" value="3">
+            <input type="button" id="subtract" class="key" value="-">
+            <!-- <br> -->
+            <input type="button" id="zero" class="key" value="0">
+            <input type="button" id="period" class="key" value=".">
+            <input type="button" id="add" class="key" value="+">
+            <input type="button" id="equal" class="key" value="=">
+            <!-- <br> -->
+            <input type="button" id="clear" class="key" value="C">
+        </div>
+	</div>
 </body>
 </html>

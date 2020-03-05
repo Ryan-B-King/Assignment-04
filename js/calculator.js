@@ -1,66 +1,75 @@
 window.addEventListener("load", init, false);
 
+// FUNCTION TO HANDLE ALL EVENT LISTENERS FOR EVERY BUTTON IN CALCULATOR
 function init() {
+
+    // LOCAL VARIABLES
     let $ = function (id) {
                 "use strict";
                 return window.document.getElementById(id);
             };
-    // let $$ = function (class) {
-    //             "use strict"
-    //             return document.getElementsByClassName(class);
-    //         };
-
     let buttons = $("buttons");
+    let equal = $("equal");
+    let clear = $("clear");
     let result = $("result");
 
-    buttons.addEventListener("click", function enter(e) {
+    $("result").value = "0";
+
+    // EVENT LISTENER TO CAPTURE BUTTON ENTRY 
+    buttons.addEventListener("click", function enter(val) {
         "use strict";
-        window.console.log(e.target.value);
+        // IF STATEMENT UPDATING DISPLAY WITH INPUT
+        // KEEPS "0" VALUE SHOWING IF INPUT IS "0" -- PREVENTS STRING TO HAVE MULTIPLE "00000" IN FROM OF OTHER DIGITS
+        if (val.target.value === "0" &&
+            val.target.value === "/" &&
+            val.target.value === "*" &&
+            val.target.value === "-" &&
+            val.target.value === "+" && 
+            $("result").value === "0"){
 
-            if (e.target.value !== "=" && e.target.value !== "C") {
+                $("result").value = "0";
 
-            result.value += e.target.value;
-
-            } else if (e.target.value === "C") {
-                result.value = ""
-            } else if (e.target.value === "=") {
-                calculate();
-            }
+        // IF FIRST KEY IS !== 0 THEN ARG WILL PASS AND COMPUTE
+        } else if (val.target.value !== "=" && 
+                   val.target.value !== "C" && 
+                   val.target.value !== undefined) {
+                    
+            // THIS WILL OVERRIDE THE INITIAL "0" PLACEHOLDER
+            if ($("result").value === "0") {
+                $("result").value = val.target.value;
+            } else if (val.target.value === "/" ||
+                        val.target.value === "*" ||
+                        val.target.value === "-" ||
+                        val.target.value === "+") {
+                if ($("result").value.includes("/") ||
+                    $("result").value.includes("*") ||
+                    $("result").value.includes("-") ||
+                    $("result").value.includes("+")) {
+                        $("result").value;
+                } else {
+                    $("result").value += val.target.value
+                };
+            } else {
+                $("result").value += val.target.value;
+            };
+        } else {
+            return;
+        };
     });
+
+    // EVENT LISTENER FOR "=" -- WILL CALCULATE ARITHMETIC
+    equal.addEventListener("click", function calculate() {
+        "use strict";
+        // ARG WILL ONLY PASS IF CURRENT VALUE IS NOT BLANK
+        if ($("result").value !== ""){
+        $("result").value = eval($("result").value);
+        };
+    });
+
+    // EVENT LISTENER FOR "C" -- WILL CLEAR THE "RESULT SCREEN"
+    clear.addEventListener("click", () => {
+        "use strict";
+        $("result").value = "0";
+    });
+
 };
-
-function calculate(){
-"use strict";
-result.value = eval(result.value);
-};
-
-
-
-
-
-
-    // function enter(val) { // to be called for each bttn by the equal sign
-        //function called for all but ENTER value  --  $("one").value
-        //get result text box by ID and set its value plue equal to the val para passed in
-        // should be live streaming the ongoing values -- concatonate string
-    // }
-
-        // result.value.appendNumber(e.target.value);
-
-        // debugger;
-        // result = string.concat(result += result.value)
-
-
-    //     while (result.value !== "=") { //equal triggers calc()
-    //         // result += result.value;
-    //         ;
-    // }
-
-
-        // result = string.concat(result + result.value);
-        // result.value = result;
-        // result = string.concat(result + result.value);
-        // do {
-        // }
-        // while ();
-        // window.console.log("Loop Ended");
