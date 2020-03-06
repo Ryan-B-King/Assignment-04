@@ -19,7 +19,7 @@ function init() {
     buttons.addEventListener("click", function enter(val) {
         "use strict";
         // IF STATEMENT UPDATING DISPLAY WITH INPUT
-        // KEEPS "0" VALUE SHOWING IF INPUT IS "0" -- PREVENTS STRING TO HAVE MULTIPLE "00000" IN FROM OF OTHER DIGITS
+        // KEEPS "0" VALUE SHOWING IF INPUT IS "0" -- PREVENTS STRING TO HAVE MULTIPLE "00000" IN FRONT OF OTHER DIGITS
         if (val.target.value === "0" &&
             val.target.value === "/" &&
             val.target.value === "*" &&
